@@ -3,6 +3,10 @@ from discord.ext import commands
 import asyncio
 import sqlite3
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv("TOKEN")
 
 # 🔗 BANCO DE DADOS
 conn = sqlite3.connect("bot.db")
@@ -81,10 +85,6 @@ async def load_cogs():
 async def main():
     async with bot:
         await load_cogs()  # 🔥 aqui está a mágica
-        await bot.start("MTQ4NDE4NTUzNDI3MTE5NzIxNA.G2IH7u.opiWIAwSXAzG3eQGz6qMfLKagoB3rT_enrfhhs")
+        await bot.start(TOKEN) # type: ignore
 
 asyncio.run(main())
-
-
-
-        #await bot.start("MTQ4NDE4NTUzNDI3MTE5NzIxNA.G2IH7u.opiWIAwSXAzG3eQGz6qMfLKagoB3rT_enrfhhs") #type: ignore
