@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+bot.db
+.env
+*.pyc
+nphup.out
