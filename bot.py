@@ -32,7 +32,7 @@ def salvar_log(user, command):
 # 🤖 BOT
 intents = discord.Intents.default()
 intents.message_content = True
-intents.members = True  # 🔥 importante pra moderação
+intents.members = True
 
 bot = commands.Bot(command_prefix="*", intents=intents)
 
@@ -58,12 +58,12 @@ async def on_message(message):
 
     await bot.process_commands(message)
 
-# 🔥 LOG AUTOMÁTICO
+# LOG AUTOMÁTICO
 @bot.event
 async def on_command(ctx):
     salvar_log(ctx.author, ctx.command.name)
 
-# 🔥 AUTO LOAD DE COGS
+# carregador dos cogs
 async def load_cogs():
     print("🔄 Carregando cogs...")
 
@@ -72,7 +72,7 @@ async def load_cogs():
             if file.endswith(".py") and not file.startswith("__"):
                 caminho = os.path.join(root, file)
 
-                # transforma caminho em formato importável
+                # caminho legivel
                 caminho = caminho.replace("./", "").replace("/", ".").replace("\\", ".")[:-3]
 
                 try:
@@ -81,10 +81,10 @@ async def load_cogs():
                 except Exception as e:
                     print(f"❌ Erro ao carregar {caminho}: {e}")
 
-# 🚀 MAIN
+# vai rodar o bot (eu espero)
 async def main():
     async with bot:
-        await load_cogs()  # 🔥 aqui está a mágica
+        await load_cogs()  # pra carregar os cogs
         await bot.start(TOKEN) # type: ignore
 
 asyncio.run(main())
