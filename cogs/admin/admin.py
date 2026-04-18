@@ -1,117 +1,128 @@
 import discord
 from discord.ext import commands
 from discord import app_commands
-import os
-
-# 🔒 CHECK PREFIXO (ADMIN)
-def is_admin():
-    async def predicate(ctx):
-        return ctx.guild and ctx.author.guild_permissions.administrator
-    return commands.check(predicate)
-
-# 🔒 CHECK SLASH (ADMIN)
-def is_admin_slash():
-    async def predicate(interaction: discord.Interaction):
-        return interaction.guild and interaction.user.guild_permissions.administrator
-    return app_commands.check(predicate)
+from pathlib import Path
 
 class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # 🧹 CLEAR (PREFIXO)
-    @commands.command()
-    @is_admin()
+    # --- UTILITÁRIO DE DM SEGURA ---
+    async def safe_dm(self, member: discord.Member, content: str):
+        try:
+            await member.send(content)
+        except discord.Forbidden:
+            pass 
+        except Exception as e:
+            print(f"⚠️ Erro ao enviar DM: {e}")
+
+    # --- COMANDO CLEAR ---
+    @commands.command(name="clear")
+    @commands.has_permissions(manage_messages=True)
     async def clear(self, ctx, amount: int):
-        amount = min(amount, 100)  # limite de segurança
-
-        deleted = await ctx.channel.purge(limit=amount + 1)
-
-        await ctx.send(
-            f"🧹 {len(deleted)-1} mensagens apagadas.",
-            delete_after=3
-        )
-
-    # 🧹 CLEAR (SLASH)
-    @app_commands.command(name="clear", description="Apaga mensagens")
-    @is_admin_slash()
-    async def clear_slash(self, interaction: discord.Interaction, amount: int):
         amount = min(amount, 100)
+        deleted = await ctx.channel.purge(limit=amount + 1)
+        await ctx.send(f"🧹 {len(deleted)-1} mensagens apagadas.", delete_after=3)
 
+    @app_commands.command(name="clear", description="Apaga mensagens do chat")
+    @app_commands.checks.has_permissions(manage_messages=True)
+    async def clear_slash(self, interaction: discord.Interaction, quantidade: int):
+        quantidade = min(quantidade, 100)
         await interaction.response.defer(ephemeral=True)
+        deleted = await interaction.channel.purge(limit=quantidade) # type: ignore
+        await interaction.followup.send(f"🧹 {len(deleted)} mensagens apagadas.", ephemeral=True)
 
-        deleted = await interaction.channel.purge(limit=amount + 1)
-
-        await interaction.followup.send(
-            f"🧹 {len(deleted)-1} mensagens apagadas.",
-            ephemeral=True
-        )
-
-    # 👢 KICK (PREFIXO)
+    # --- COMANDO KICK ---
     @commands.command()
-    @is_admin()
-    async def kick(self, ctx, member: discord.Member, *, motivo=None):
+    @commands.has_permissions(kick_members=True)
+    async def kick(self, ctx, member: discord.Member, *, motivo: str = "Sem motivo especificado"):
+        if member.top_role >= ctx.author.top_role and ctx.author != ctx.guild.owner:
+            return await ctx.send("❌ Hierarquia insuficiente.")
+        
+        await self.safe_dm(member, f"👢 Você foi expulso de **{ctx.guild.name}**\nMotivo: {motivo}")
         await member.kick(reason=motivo)
-        await ctx.send(f"👢 {member.mention} foi expulso.")
+        await ctx.send(f"👢 {member.mention} expulso.")
 
-    # 👢 KICK (SLASH)
-    @app_commands.command(name="kick", description="Expulsa um usuário")
-    @is_admin_slash()
-    async def kick_slash(self, interaction: discord.Interaction, member: discord.Member, motivo: str = None):
-        await member.kick(reason=motivo)
+    @app_commands.command(name="kick", description="Expulsa um membro")
+    @app_commands.checks.has_permissions(kick_members=True)
+    async def kick_slash(self, interaction: discord.Interaction, membro: discord.Member, motivo: str = "Sem motivo"):
+        if membro.top_role >= interaction.user.top_role: # type: ignore
+            return await interaction.response.send_message("❌ Hierarquia insuficiente.", ephemeral=True)
+        
+        await self.safe_dm(membro, f"👢 Expulso de **{interaction.guild.name}**\nMotivo: {motivo}") # type: ignore
+        await membro.kick(reason=motivo)
+        await interaction.response.send_message(f"👢 {membro.mention} expulso.", ephemeral=True)
 
-        await interaction.response.send_message(
-            f"👢 {member.mention} foi expulso.",
-            ephemeral=True
-        )
-
-    # 🔨 BAN (PREFIXO)
+    # --- COMANDO BAN ---
     @commands.command()
-    @is_admin()
-    async def ban(self, ctx, member: discord.Member, *, motivo=None):
+    @commands.has_permissions(ban_members=True)
+    async def ban(self, ctx, member: discord.Member, *, motivo: str = "Sem motivo especificado"):
+        if member.top_role >= ctx.author.top_role and ctx.author != ctx.guild.owner:
+            return await ctx.send("❌ Hierarquia insuficiente.")
+        
+        await self.safe_dm(member, f"🔨 Banido de **{ctx.guild.name}**\nMotivo: {motivo}")
         await member.ban(reason=motivo)
-        await ctx.send(f"🔨 {member.mention} foi banido.")
+        await ctx.send(f"🔨 {member.mention} banido.")
 
-    # 🔨 BAN (SLASH)
-    @app_commands.command(name="ban", description="Bane um usuário")
-    @is_admin_slash()
-    async def ban_slash(self, interaction: discord.Interaction, member: discord.Member, motivo: str = None):
-        await member.ban(reason=motivo)
+    @app_commands.command(name="ban", description="Bane um membro do servidor")
+    @app_commands.checks.has_permissions(ban_members=True)
+    async def ban_slash(self, interaction: discord.Interaction, membro: discord.Member, motivo: str = "Sem motivo"):
+        if membro.top_role >= interaction.user.top_role: # type: ignore
+            return await interaction.response.send_message("❌ Hierarquia insuficiente.", ephemeral=True)
+        
+        await self.safe_dm(membro, f"🔨 Banido de **{interaction.guild.name}**\nMotivo: {motivo}") # type: ignore
+        await membro.ban(reason=motivo)
+        await interaction.response.send_message(f"🔨 {membro.mention} banido.", ephemeral=True)
 
-        await interaction.response.send_message(
-            f"🔨 {member.mention} foi banido.",
-            ephemeral=True
-        )
-
-    # 🔄 RELOAD ALL
+    # --- RELOAD ---
     @commands.command()
-    @is_admin()
-    async def reloadall(self, ctx):
-        sucesso = 0
-        erro = 0
+    @commands.has_permissions(administrator=True)
+    async def reloadall(self, ctx, sync: bool = False):
+        msg = await ctx.send("🔄 Reiniciando sistemas...")
+        sucesso, erro = 0, 0
+        
+        for file in Path("./cogs").rglob("*.py"):
+            if not file.name.startswith("__"):
+                modulo = ".".join(file.with_suffix("").parts)
+                try:
+                    await self.bot.reload_extension(modulo)
+                    sucesso += 1
+                except Exception as e:
+                    print(f"Erro no reload de {modulo}: {e}")
+                    erro += 1
+        
+        if sync:
+            await self.bot.tree.sync()
+            sync_status = " | 🌳 Árvore Sincronizada"
+        else:
+            sync_status = ""
 
-        for root, dirs, files in os.walk("./cogs"):
-            for file in files:
-                if file.endswith(".py") and not file.startswith("__"):
-                    caminho = os.path.join(root, file)
-                    caminho = caminho.replace("./", "").replace("/", ".").replace("\\", ".")[:-3]
+        await msg.edit(content=f"🔄 **Sistemas Recarregados!**\n✅ {sucesso} | ❌ {erro}{sync_status}")
 
-                    try:
-                        await self.bot.reload_extension(caminho)
-                        sucesso += 1
-                    except Exception:
-                        erro += 1
+    # --- TRATAMENTO DE ERROS DE PREFIXO (COSTA A COSTA) ---
+    async def cog_command_error(self, ctx, error):
+        """Handler que captura erros de qualquer comando de prefixo desta Cog."""
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send("🚫 Você não tem as permissões necessárias.", delete_after=5)
+        elif isinstance(error, commands.BotMissingPermissions):
+            await ctx.send("🤖 Eu não tenho permissão para executar essa ação!", delete_after=5)
+        elif isinstance(error, commands.MemberNotFound):
+            await ctx.send("👤 Membro não encontrado.", delete_after=5)
+        elif isinstance(error, commands.BadArgument):
+            await ctx.send("⚠️ Argumento inválido. Verifique se digitou o número ou menção corretamente.", delete_after=5)
+        else:
+            print(f"🔥 Erro não tratado no prefixo: {error}")
 
-        await ctx.send(f"🔄 Reload completo!\n✅ {sucesso} | ❌ {erro}")
-
-    # ❌ ERROS PREFIXO
-    @clear.error
-    @kick.error
-    @ban.error
-    @reloadall.error
-    async def admin_error(self, ctx, error):
-        if isinstance(error, commands.CheckFailure):
-            await ctx.send("🚫 Você não tem permissão para usar esse comando.", delete_after=3)
+    # --- TRATAMENTO DE ERROS SLASH ---
+    @commands.Cog.listener()
+    async def on_app_command_error(self, interaction: discord.Interaction, error: app_commands.AppCommandError):
+        if isinstance(error, app_commands.MissingPermissions):
+            if not interaction.response.is_done():
+                await interaction.response.send_message("🚫 Você não tem permissão para isso.", ephemeral=True)
+            else:
+                await interaction.followup.send("🚫 Você não tem permissão para isso.", ephemeral=True)
+        else:
+            print(f"🔥 Erro no Slash Command: {error}")
 
 async def setup(bot):
     await bot.add_cog(Admin(bot))

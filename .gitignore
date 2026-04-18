@@ -3,4 +3,4 @@ __pycache__/
 bot.db
 .env
 *.pyc
-nphup.out
+nohup.out

@@ -1,90 +1,71 @@
 import discord
 from discord.ext import commands
 import asyncio
-import sqlite3
+import aiosqlite
 import os
+import sys
+from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 
-# 🔗 BANCO DE DADOS
-conn = sqlite3.connect("bot.db")
-cursor = conn.cursor()
+class RemnantBot(commands.Bot):
+    def __init__(self):
+        intents = discord.Intents.default()
+        intents.message_content = True
+        intents.members = True
+        intents.presences = True
+        super().__init__(command_prefix="*", intents=intents, help_command=None)
+        self.db: aiosqlite.Connection = None # type: ignore
+        self.start_time = time.time()  #type: ignore
 
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS logs (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user TEXT,
-    command TEXT,
-    date TEXT
-)
-""")
-conn.commit()
+    async def setup_hook(self):
+        # Conexão com Banco de Dados
+        try:
+            self.db = await aiosqlite.connect("bot.db")
+            await self.db.execute("CREATE TABLE IF NOT EXISTS logs (id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, command TEXT, date TEXT)")
+            await self.db.commit()
+            print("🗄️ Banco de dados pronto.")
+        except Exception as e:
+            print(f"❌ Erro no banco: {e}")
+            sys.exit(1)
 
-def salvar_log(user, command):
-    cursor.execute(
-        "INSERT INTO logs (user, command, date) VALUES (?, ?, datetime('now'))",
-        (str(user), command)
-    )
-    conn.commit()
+        # Carregamento de Cogs
+        cogs_dir = Path("./cogs")
+        if cogs_dir.exists():
+            for file in cogs_dir.rglob("*.py"):
+                if not file.name.startswith("__"):
+                    modulo = ".".join(file.with_suffix("").parts)
+                    try:
+                        await self.load_extension(modulo)
+                        print(f"✅ Módulo: {modulo}")
+                    except Exception as e:
+                        print(f"❌ Erro em {modulo}: {e}")
 
-# 🤖 BOT
-intents = discord.Intents.default()
-intents.message_content = True
-intents.members = True
+    async def close(self):
+        if self.db:
+            await self.db.close()
+        await super().close()
 
-bot = commands.Bot(command_prefix="*", intents=intents)
+bot = RemnantBot()
 
-@bot.event
-async def on_ready():
-    await bot.tree.sync()
-    print(f'🟢 Remnant online como {bot.user}')
-
-@bot.event
-async def on_message(message):
-    if message.author.bot:
-        return
-
-    if message.content == f"<@{bot.user.id}>" or message.content == f"<@!{bot.user.id}>":  # type: ignore
-        embed = discord.Embed(
-            title="🟢 Remnant System",
-            description="Sistema ativo...\nPrefixo atual: `*`",
-            color=discord.Color.dark_green()
-        )
-
-        embed.set_footer(text="⚠️ Fragmentos detectados...")
-        await message.channel.send(embed=embed)
-
-    await bot.process_commands(message)
-
-# LOG AUTOMÁTICO
-@bot.event
-async def on_command(ctx):
-    salvar_log(ctx.author, ctx.command.name)
-
-# carregador dos cogs
-async def load_cogs():
-    print("🔄 Carregando cogs...")
-
-    for root, dirs, files in os.walk("./cogs"):
-        for file in files:
-            if file.endswith(".py") and not file.startswith("__"):
-                caminho = os.path.join(root, file)
-
-                # caminho legivel
-                caminho = caminho.replace("./", "").replace("/", ".").replace("\\", ".")[:-3]
-
-                try:
-                    await bot.load_extension(caminho)
-                    print(f"✅ Carregado: {caminho}")
-                except Exception as e:
-                    print(f"❌ Erro ao carregar {caminho}: {e}")
-
-# vai rodar o bot (eu espero)
 async def main():
-    async with bot:
-        await load_cogs()  # pra carregar os cogs
-        await bot.start(TOKEN) # type: ignore
+    if not TOKEN:
+        print("❌ TOKEN não encontrado!")
+        return
+    try:
+        async with bot:
+            await bot.start(TOKEN)
+    except discord.LoginFailure:
+        print("❌ Token inválido.")
+    except Exception as e:
+        print(f"❌ Erro ao iniciar: {e}")
 
-asyncio.run(main())
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("\n👋 Desligando...")
+    finally:
+        print("✅ Remnant encerrado.")
