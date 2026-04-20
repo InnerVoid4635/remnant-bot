@@ -19,11 +19,15 @@ Bot para Discord desenvolvido em Python com suporte a comandos de prefixo (`*`) 
 - `*clear` / `/clear` — apaga mensagens do canal
 - `*kick` / `/kick` — expulsa um membro do servidor
 - `*ban` / `/ban` — bane um membro do servidor
-- `*reloadall` — recarrega todos os módulos do bot
+- `*reloadall [True]` — recarrega todos os módulos (True sincroniza slash commands)
 
-### 📢 Avisos (`embed_builder`)
-- `/aviso` — cria e envia um embed personalizado para um canal *(apenas administradores)*
-- `*embed` — versão por prefixo do criador de embeds
+### 📢 Embeds (`embed_builder`)
+- `*embed` / `/embed` — cria e envia um embed personalizado para um canal
+- `/embed` — abre modal interativo para criar o embed
+- `*embed #canal | Título | Descrição | Cor` — cria embed via prefixo
+- `*template [nome] [#canal]` — carrega um template salvo (sem nome lista os disponíveis)
+- `*template_delete nome` — deleta um template salvo
+- Templates são salvos em `templates/` como arquivos `.json`
 
 ### 🔍 Informações (`info`)
 - `*scan` / `/scan` — exibe perfil detalhado de um usuário
@@ -32,13 +36,24 @@ Bot para Discord desenvolvido em Python com suporte a comandos de prefixo (`*`) 
 
 ### 🛠️ Geral (`geral`)
 - `*ping` / `/ping` — latência e uptime do bot
-- `/help` — lista todos os comandos disponíveis
+- `*help` / `/help` — lista todos os comandos disponíveis
 - `/info` — estatísticas técnicas do bot
 
-### 📋 Logs (`logs`)
-- Registra automaticamente mensagens apagadas
+### 📋 Logs do Servidor (`logs`)
+- Registra mensagens apagadas
 - Registra edições de mensagens
 - Registra bans e saídas de membros
+- Envia logs para o canal definido em `LOG_CHANNEL_ID`
+
+### 🗃️ Arquivo (`archive`)
+- Salva todas as mensagens do servidor no banco de dados SQLite automaticamente
+
+### 📊 Verbose (`verbose`)
+- Sistema de logging local com 4 arquivos separados em `logs/`
+- `commands.log` — todos os comandos executados
+- `events.log` — eventos do servidor (ban, kick, saída, embeds)
+- `errors.log` — erros e exceções
+- `system.log` — inicialização, reload, banco de dados
 
 ---
 
@@ -47,15 +62,19 @@ Bot para Discord desenvolvido em Python com suporte a comandos de prefixo (`*`) 
 ```
 📁 meu bot/
 ├── bot.py               # Inicialização e configuração principal
+├── verbose.py           # Sistema de logging local
 ├── .env                 # Variáveis de ambiente (não versionar)
 ├── bot.db               # Banco de dados SQLite
+├── templates/           # Templates de embeds em JSON
+├── logs/                # Arquivos de log gerados pelo verbose
 └── cogs/
     ├── admin/
     │   ├── admin.py
     │   └── embed_builder.py
     ├── system/
     │   ├── events.py
-    │   └── logs.py
+    │   ├── logs.py
+    │   └── archive.py
     └── utility/
         ├── geral.py
         └── info.py
@@ -90,6 +109,15 @@ python bot.py
 ---
 
 ## 📝 Changelog
+
+### v3.0.0
+- Migração para `hybrid_command` em todos os módulos — elimina duplicata prefixo/slash
+- Adicionado `verbose.py` com logging local em 4 arquivos separados
+- Adicionado `archive.py` — salva mensagens no banco de dados automaticamente
+- Sistema de templates JSON para embeds (`*template`, `/template`, `*template_delete`)
+- `/embed` agora abre modal com opção de salvar como template
+- Correção do bug de mensagens duplicadas no Discord
+- Adicionadas tabelas `chat_logs` no banco de dados
 
 ### v2.0.0
 - Migração completa para `aiosqlite` (banco assíncrono)
