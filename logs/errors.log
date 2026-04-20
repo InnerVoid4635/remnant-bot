@@ -1,0 +1,3 @@
+[2026-04-19 16:59:53] [ERROR] [bot.setup_hook.cog.cogs.utility.geral] ExtensionFailed: Extension 'cogs.utility.geral' raised an error: SyntaxError: invalid syntax (geral.py, line 65)
+[2026-04-19 17:01:45] [ERROR] [bot.setup_hook.cog.cogs.utility.geral] ExtensionFailed: Extension 'cogs.utility.geral' raised an error: IndentationError: expected an indented block after function definition on line 66 (geral.py, line 67)
+[2026-04-19 19:32:26] [ERROR] [embed_builder.cog_command_error] MissingRequiredArgument: canal is a required argument that is missing.
