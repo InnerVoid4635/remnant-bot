@@ -4,3 +4,5 @@ bot.db
 .env
 *.pyc
 nohup.out
+*.log
+log_channels.json
