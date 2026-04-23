@@ -10,6 +10,7 @@ Bot para Discord desenvolvido em Python com suporte a comandos de prefixo (`*`) 
 - [discord.py](https://discordpy.readthedocs.io/) — framework do bot
 - [aiosqlite](https://aiosqlite.omnilib.dev/) — banco de dados assíncrono
 - [python-dotenv](https://pypi.org/project/python-dotenv/) — variáveis de ambiente
+- [aioconsole](https://pypi.org/project/aioconsole/) — terminal interativo assíncrono
 
 ---
 
@@ -19,19 +20,21 @@ Bot para Discord desenvolvido em Python com suporte a comandos de prefixo (`*`) 
 - `*clear` / `/clear` — apaga mensagens do canal
 - `*kick` / `/kick` — expulsa um membro do servidor
 - `*ban` / `/ban` — bane um membro do servidor
+
+### 👑 Dono (`owner`)
 - `*reloadall [True]` — recarrega todos os módulos (True sincroniza slash commands)
 
 ### 📢 Embeds (`embed_builder`)
 - `*embed` / `/embed` — cria e envia um embed personalizado para um canal
-- `/embed` — abre modal interativo para criar o embed
+- `/embed` — abre modal interativo com opção de salvar como template
 - `*embed #canal | Título | Descrição | Cor` — cria embed via prefixo
-- `*template [nome] [#canal]` — carrega um template salvo (sem nome lista os disponíveis)
+- `*template [nome] [#canal]` — lista ou carrega um template salvo
 - `*template_delete nome` — deleta um template salvo
-- Templates são salvos em `templates/` como arquivos `.json`
+- Templates salvos em `templates/` como arquivos `.json`
 
 ### 🔍 Informações (`info`)
-- `*scan` / `/scan` — exibe perfil detalhado de um usuário
-- `*avatar` / `/avatar` — mostra o avatar ampliado de um membro
+- `*scan` / `/scan [membro]` — exibe perfil detalhado de um usuário
+- `*avatar` / `/avatar [membro]` — mostra o avatar ampliado de um membro
 - `*server` / `/server` — exibe informações do servidor
 
 ### 🛠️ Geral (`geral`)
@@ -40,13 +43,16 @@ Bot para Discord desenvolvido em Python com suporte a comandos de prefixo (`*`) 
 - `/info` — estatísticas técnicas do bot
 
 ### 📋 Logs do Servidor (`logs`)
-- Registra mensagens apagadas
-- Registra edições de mensagens
-- Registra bans e saídas de membros
-- Envia logs para o canal definido em `LOG_CHANNEL_ID`
+- Canal de log configurável por servidor via `*setlog #canal`
+- `*setlog #canal` — define o canal de log do servidor (admin)
+- `*unsetlog` — remove o canal de log do servidor (admin)
+- Registra mensagens apagadas, edições, bans e saídas de membros
+- Todos os logs são enviados também via DM para o dono do bot
+- Configuração persistida em `log_channels.json` por servidor
 
-### 🗃️ Arquivo (`archive`)
-- Salva todas as mensagens do servidor no banco de dados SQLite automaticamente
+### 📡 Eventos (`events`)
+- Notifica o dono via DM quando o bot é adicionado a um novo servidor
+- Registra todos os comandos executados no banco de dados SQLite
 
 ### 📊 Verbose (`verbose`)
 - Sistema de logging local com 4 arquivos separados em `logs/`
@@ -55,18 +61,25 @@ Bot para Discord desenvolvido em Python com suporte a comandos de prefixo (`*`) 
 - `errors.log` — erros e exceções
 - `system.log` — inicialização, reload, banco de dados
 
+### 💻 Terminal Interativo
+- `status` — uptime, servidores e latência
+- `reload` — recarrega todos os módulos
+- `stop` — desliga o bot
+- `clear` — limpa o terminal
+
 ---
 
 ## 🗂️ Estrutura do Projeto
 
 ```
 📁 meu bot/
-├── bot.py               # Inicialização e configuração principal
+├── bot.py               # Inicialização, terminal interativo e configuração principal
 ├── verbose.py           # Sistema de logging local
 ├── .env                 # Variáveis de ambiente (não versionar)
 ├── bot.db               # Banco de dados SQLite
+├── log_channels.json    # Canais de log por servidor (não versionar)
 ├── templates/           # Templates de embeds em JSON
-├── logs/                # Arquivos de log gerados pelo verbose
+├── logs/                # Arquivos de log gerados pelo verbose (não versionar)
 └── cogs/
     ├── admin/
     │   ├── admin.py
@@ -74,7 +87,7 @@ Bot para Discord desenvolvido em Python com suporte a comandos de prefixo (`*`) 
     ├── system/
     │   ├── events.py
     │   ├── logs.py
-    │   └── archive.py
+    │   └── owner.py
     └── utility/
         ├── geral.py
         └── info.py
@@ -98,7 +111,6 @@ pip install -r requirements.txt
 **3. Configure o `.env`**
 ```env
 TOKEN=seu_token_aqui
-LOG_CHANNEL_ID=id_do_canal_de_logs
 ```
 
 **4. Inicie o bot**
@@ -106,26 +118,36 @@ LOG_CHANNEL_ID=id_do_canal_de_logs
 python bot.py
 ```
 
+**5. Defina o canal de log em cada servidor**
+```
+*setlog #canal-de-logs
+```
+
 ---
 
 ## 📝 Changelog
 
+### v4.0.0
+- `reloadall` movido para `owner.py` — protegido com `is_owner()`
+- Canal de log agora é configurável por servidor via `*setlog` e `*unsetlog`
+- Logs enviados via DM para o dono do bot em tempo real
+- Adicionado `on_guild_join` — notifica o dono quando o bot entra em novo servidor
+- Terminal interativo com `aioconsole` (`status`, `reload`, `stop`, `clear`)
+- Embeds de log melhorados com avatar, thumbnail e informações do servidor
+- `LOG_CHANNEL_ID` removido do `.env` — substituído por `log_channels.json`
+
 ### v3.0.0
 - Migração para `hybrid_command` em todos os módulos — elimina duplicata prefixo/slash
 - Adicionado `verbose.py` com logging local em 4 arquivos separados
-- Adicionado `archive.py` — salva mensagens no banco de dados automaticamente
-- Sistema de templates JSON para embeds (`*template`, `/template`, `*template_delete`)
+- Sistema de templates JSON para embeds
 - `/embed` agora abre modal com opção de salvar como template
 - Correção do bug de mensagens duplicadas no Discord
-- Adicionadas tabelas `chat_logs` no banco de dados
 
 ### v2.0.0
 - Migração completa para `aiosqlite` (banco assíncrono)
 - Adicionados slash commands em todos os módulos
-- Refatoração: events movidos para `cogs/system/events.py`
 - Reorganização das pastas de cogs em `admin/`, `system/` e `utility/`
 - Adicionado `embed_builder` com suporte a modal interativo
-- `reloadall` agora suporta sincronização opcional da árvore (`*reloadall True`)
 - Remoção do `database.py` legado
 
 ### v1.0.0

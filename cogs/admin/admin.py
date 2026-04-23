@@ -1,8 +1,7 @@
 import discord
 from discord.ext import commands
 from discord import app_commands
-from pathlib import Path
-from verbose import log_command, log_error, log_event, log_system
+from verbose import log_command, log_error, log_event
 
 class Admin(commands.Cog):
     def __init__(self, bot):
@@ -57,33 +56,6 @@ class Admin(commands.Cog):
         await member.ban(reason=motivo)
         log_event("BAN", f"{member} banido de {ctx.guild.name} por {ctx.author} | Motivo: {motivo}")
         await ctx.send(f"🔨 {member.mention} banido.", ephemeral=bool(ctx.interaction))
-
-    # --- RELOAD ---
-    @commands.command()
-    @commands.has_permissions(administrator=True)
-    async def reloadall(self, ctx, sync: bool = False):
-        msg = await ctx.send("🔄 Reiniciando sistemas...")
-        sucesso, erro = 0, 0
-
-        for file in Path("./cogs").rglob("*.py"):
-            if not file.name.startswith("__"):
-                modulo = ".".join(file.with_suffix("").parts)
-                try:
-                    await self.bot.reload_extension(modulo)
-                    sucesso += 1
-                except Exception as e:
-                    log_error(f"reloadall.{modulo}", e)
-                    erro += 1
-
-        if sync:
-            await self.bot.tree.sync()
-            sync_status = " | 🌳 Árvore Sincronizada"
-            log_system("Árvore de comandos sincronizada via reloadall.")
-        else:
-            sync_status = ""
-
-        log_system(f"Reloadall por {ctx.author} | ✅ {sucesso} | ❌ {erro}")
-        await msg.edit(content=f"🔄 **Sistemas Recarregados!**\n✅ {sucesso} | ❌ {erro}{sync_status}")
 
     # --- TRATAMENTO DE ERROS ---
     async def cog_command_error(self, ctx, error):
