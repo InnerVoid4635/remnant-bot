@@ -10,6 +10,10 @@ import aioconsole
 from pathlib import Path
 from dotenv import load_dotenv
 from verbose import log_system, log_error
+import subprocess
+
+subprocess.Popen([sys.executable, "-m", "streamlit", "run", "painel.py"])
+print("🚀 Dashboard iniciado! Ligando o bot Remnant...")
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
@@ -70,26 +74,39 @@ class RemnantBot(commands.Bot):
                 print(f"⚠️ Erro no Console: {e}")
 
     async def setup_hook(self):
-        # Conexão com Banco de Dados
+        # --- Conexão com Banco de Dados ---
         try:
             self.db = await aiosqlite.connect("bot.db")
-            await self.db.execute("CREATE TABLE IF NOT EXISTS logs (id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, command TEXT, date TEXT)")
+
+            # Tabela de logs — compatível com o painel (verbose.py grava aqui via SQLiteHandler)
             await self.db.execute("""
-                CREATE TABLE IF NOT EXISTS chat_logs (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    user_id INTEGER,
-                    channel_id INTEGER,
-                    content TEXT,
-                    timestamp TEXT
+                CREATE TABLE IF NOT EXISTS logs (
+                    id        INTEGER PRIMARY KEY AUTOINCREMENT,
+                    timestamp TEXT NOT NULL,
+                    level     TEXT NOT NULL,
+                    logger    TEXT NOT NULL,
+                    message   TEXT NOT NULL
                 )
             """)
+
+            # Tabela de chat logs
+            await self.db.execute("""
+                CREATE TABLE IF NOT EXISTS chat_logs (
+                    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id    INTEGER,
+                    channel_id INTEGER,
+                    content    TEXT,
+                    timestamp  TEXT
+                )
+            """)
+
             await self.db.commit()
             log_system("Banco de dados conectado.")
         except Exception as e:
             log_error("bot.setup_hook.db", e)
             sys.exit(1)
 
-        # Carregamento de Cogs
+        # --- Carregamento de Cogs ---
         cogs_dir = Path("./cogs")
         if cogs_dir.exists():
             for file in cogs_dir.rglob("*.py"):

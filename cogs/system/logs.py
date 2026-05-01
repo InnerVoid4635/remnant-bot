@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import os
 import json
 from pathlib import Path
 from verbose import log_event, log_error, log_system
@@ -9,7 +8,8 @@ from verbose import log_event, log_error, log_system
 OWNER_ID = 741273661163569212
 
 # --- ARQUIVO DE CONFIGURAÇÃO DE CANAIS ---
-CONFIG_PATH = Path("./log_channels.json")
+CONFIG_PATH = Path("./config/log_channels.json")
+CONFIG_PATH.parent.mkdir(exist_ok=True)
 
 def load_log_channels() -> dict:
     if CONFIG_PATH.exists():
@@ -22,7 +22,6 @@ def save_log_channels(data: dict):
 class Logs(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        # Dicionário: guild_id (str) → channel_id (int)
         self.log_channels: dict = load_log_channels()
 
     # --- UTILITÁRIO DE TRUNCAGEM ---
@@ -31,8 +30,9 @@ class Logs(commands.Cog):
             return "*(Sem conteúdo)*"
         return (text[:max_chars - 3] + "...") if len(text) > max_chars else text
 
-    # --- ENVIO: canal do servidor + DM para o dono ---
-    async def send_log(self, embed, guild: discord.Guild):
+    # --- ENVIO: canal do servidor + DM opcional para o dono ---
+    # dm_owner=True apenas para eventos críticos (ban) para não inundar DMs
+    async def send_log(self, embed: discord.Embed, guild: discord.Guild, dm_owner: bool = False):
         # Envia no canal de log do servidor
         guild_id = str(guild.id)
         channel_id = self.log_channels.get(guild_id)
@@ -48,12 +48,13 @@ class Logs(commands.Cog):
             except Exception as e:
                 log_error("logs.send_log", e)
 
-        # Envia DM para o dono
-        try:
-            owner = await self.bot.fetch_user(OWNER_ID)
-            await owner.send(embed=embed)
-        except Exception as e:
-            log_error("logs.send_log.dm", e)
+        # DM para o dono apenas quando solicitado
+        if dm_owner and OWNER_ID:
+            try:
+                owner = await self.bot.fetch_user(OWNER_ID)
+                await owner.send(embed=embed)
+            except Exception as e:
+                log_error("logs.send_log.dm", e)
 
     # --- COMANDO: define o canal de log do servidor ---
     @commands.command()
@@ -78,7 +79,7 @@ class Logs(commands.Cog):
 
     # 📝 EVENTO: MENSAGEM DELETADA
     @commands.Cog.listener()
-    async def on_message_delete(self, message):
+    async def on_message_delete(self, message: discord.Message):
         if message.author.bot or not message.guild:
             return
 
@@ -90,18 +91,22 @@ class Logs(commands.Cog):
             timestamp=discord.utils.utcnow()
         )
         embed.set_author(name=str(message.author), icon_url=message.author.display_avatar.url)
-        embed.add_field(name="👤 Autor", value=message.author.mention, inline=True)
-        embed.add_field(name="💬 Canal", value=message.channel.mention, inline=True)
-        embed.add_field(name="🌐 Servidor", value=str(message.guild), inline=True)
+        embed.add_field(name="👤 Autor",    value=message.author.mention,        inline=True)
+        embed.add_field(name="💬 Canal",    value=message.channel.mention,       inline=True)
+        embed.add_field(name="🌐 Servidor", value=str(message.guild),            inline=True)
         embed.add_field(name="📝 Conteúdo", value=self.truncate(message.content), inline=False)
         embed.set_thumbnail(url=message.author.display_avatar.url)
         embed.set_footer(text=f"ID: {message.author.id}")
-        await self.send_log(embed, message.guild)
+
+        # Não envia DM — evento frequente, evita rate limit
+        await self.send_log(embed, message.guild, dm_owner=False)
 
     # ✏️ EVENTO: MENSAGEM EDITADA
     @commands.Cog.listener()
-    async def on_message_edit(self, before, after):
+    async def on_message_edit(self, before: discord.Message, after: discord.Message):
         if before.author.bot or before.content == after.content:
+            return
+        if not before.guild:
             return
 
         log_event("MSG_EDIT", f"{before.author} em #{before.channel} ({before.guild})")
@@ -112,18 +117,20 @@ class Logs(commands.Cog):
             timestamp=discord.utils.utcnow()
         )
         embed.set_author(name=str(before.author), icon_url=before.author.display_avatar.url)
-        embed.add_field(name="👤 Autor", value=before.author.mention, inline=True)
-        embed.add_field(name="💬 Canal", value=before.channel.mention, inline=True)
-        embed.add_field(name="🌐 Servidor", value=str(before.guild), inline=True)
-        embed.add_field(name="📝 Antes", value=self.truncate(before.content), inline=False)
-        embed.add_field(name="✅ Depois", value=self.truncate(after.content), inline=False)
+        embed.add_field(name="👤 Autor",    value=before.author.mention,        inline=True)
+        embed.add_field(name="💬 Canal",    value=before.channel.mention,       inline=True) #type
+        embed.add_field(name="🌐 Servidor", value=str(before.guild),            inline=True)
+        embed.add_field(name="📝 Antes",    value=self.truncate(before.content), inline=False)
+        embed.add_field(name="✅ Depois",   value=self.truncate(after.content),  inline=False)
         embed.set_thumbnail(url=before.author.display_avatar.url)
         embed.set_footer(text=f"ID: {before.author.id}")
-        await self.send_log(embed, before.guild)
+
+        # Não envia DM — evento frequente, evita rate limit
+        await self.send_log(embed, before.guild, dm_owner=False)
 
     # 🚫 EVENTO: MEMBRO BANIDO
     @commands.Cog.listener()
-    async def on_member_ban(self, guild, user):
+    async def on_member_ban(self, guild: discord.Guild, user: discord.User):
         log_event("BAN", f"{user.name} ({user.id}) banido de {guild.name}")
 
         embed = discord.Embed(
@@ -133,15 +140,29 @@ class Logs(commands.Cog):
             timestamp=discord.utils.utcnow()
         )
         embed.set_author(name=str(user), icon_url=user.display_avatar.url)
-        embed.add_field(name="🆔 ID", value=f"`{user.id}`", inline=True)
-        embed.add_field(name="🌐 Servidor", value=guild.name, inline=True)
+        embed.add_field(name="🆔 ID",       value=f"`{user.id}`", inline=True)
+        embed.add_field(name="🌐 Servidor", value=guild.name,     inline=True)
         embed.set_thumbnail(url=user.display_avatar.url)
         embed.set_footer(text=f"ID: {user.id}")
-        await self.send_log(embed, guild)
+
+        # Ban é crítico — envia DM para o dono
+        await self.send_log(embed, guild, dm_owner=True)
 
     # 🚪 EVENTO: MEMBRO SAIU
     @commands.Cog.listener()
-    async def on_member_remove(self, member):
+    async def on_member_remove(self, member: discord.Member):
+        # CORRIGIDO: on_member_remove também dispara após um ban.
+        # Verifica se o membro foi banido para evitar duplicata com on_member_ban.
+        try:
+            await member.guild.fetch_ban(member)
+            return  # é um ban — on_member_ban já tratou, ignora aqui
+        except discord.NotFound:
+            pass    # não é ban, continua normalmente
+        except discord.Forbidden:
+            pass    # bot sem permissão para ver bans, continua
+        except Exception:
+            pass
+
         log_event("MEMBER_LEAVE", f"{member.name} ({member.id}) saiu de {member.guild.name}")
 
         embed = discord.Embed(
@@ -151,11 +172,22 @@ class Logs(commands.Cog):
             timestamp=discord.utils.utcnow()
         )
         embed.set_author(name=str(member), icon_url=member.display_avatar.url)
-        embed.add_field(name="🌐 Servidor", value=member.guild.name, inline=True)
+        embed.add_field(name="🌐 Servidor",        value=member.guild.name,              inline=True)
         embed.add_field(name="👥 Membros restantes", value=str(member.guild.member_count), inline=True)
         embed.set_thumbnail(url=member.display_avatar.url)
         embed.set_footer(text=f"ID: {member.id}")
-        await self.send_log(embed, member.guild)
+
+        # Não envia DM — evento frequente
+        await self.send_log(embed, member.guild, dm_owner=False)
+
+    # --- HANDLER DE ERROS ---
+    async def cog_command_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send("🚫 Você precisa ser Administrador para usar este comando.", delete_after=5)
+        elif isinstance(error, commands.ChannelNotFound):
+            await ctx.send("❌ Canal não encontrado.", delete_after=5)
+        else:
+            log_error("logs.cog_command_error", error)
 
 async def setup(bot):
     await bot.add_cog(Logs(bot))

@@ -25,16 +25,15 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_command(self, ctx):
-        log_command(str(ctx.author), ctx.command.name, str(ctx.guild), str(ctx.channel))
-        try:
-            if self.bot.db:
-                await self.bot.db.execute(
-                    "INSERT INTO logs (user, command, date) VALUES (?, ?, datetime('now'))",
-                    (str(ctx.author), ctx.command.name)
-                )
-                await self.bot.db.commit()
-        except Exception as e:
-            log_error("events.on_command", e)
+        # CORRIGIDO: removida a inserção manual no banco com esquema antigo.
+        # O verbose.py já grava tudo no banco via SQLiteHandler automaticamente.
+        # Esta linha é suficiente — não duplica e usa o esquema correto.
+        log_command(
+            f"{ctx.author} ({ctx.author.id})",
+            ctx.command.name,
+            str(ctx.guild),
+            str(ctx.channel)
+        )
 
     @commands.Cog.listener()
     async def on_guild_join(self, guild: discord.Guild):
@@ -52,7 +51,12 @@ class Events(commands.Cog):
             embed.add_field(name="🌐 Servidor", value=f"{guild.name} (`{guild.id}`)", inline=False)
             embed.add_field(name="👑 Dono", value=str(guild.owner), inline=True)
             embed.add_field(name="👥 Membros", value=str(guild.member_count), inline=True)
-            embed.set_thumbnail(url=guild.icon.url if guild.icon else discord.Embed.Empty) # type: ignore
+
+            # CORRIGIDO: discord.Embed.Empty foi removido no discord.py v2.
+            # set_thumbnail ignora silenciosamente se não for chamado — não precisa de fallback.
+            if guild.icon:
+                embed.set_thumbnail(url=guild.icon.url)
+
             await owner.send(embed=embed)
         except Exception as e:
             log_error("events.on_guild_join", e)
