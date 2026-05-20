@@ -1,12 +1,11 @@
 import discord
 from discord.ext import commands
 from verbose import log_command, log_event, log_error, log_system
+import os
+from dotenv import load_dotenv
 
-# --- SEU ID DO DISCORD ---
-# Para encontrar: Ative o Modo Desenvolvedor no Discord
-# Configurações → Avançado → Modo Desenvolvedor
-# Depois clique com botão direito no seu usuário → Copiar ID
-OWNER_ID = 741273661163569212  # substitua pelo seu ID
+load_dotenv()
+OWNER_ID = int(os.getenv("OWNER_ID", "0"))
 
 class Events(commands.Cog):
     def __init__(self, bot):
@@ -20,14 +19,14 @@ class Events(commands.Cog):
             log_system(f"Usuário: {self.bot.user}")
             log_system("Status: Monitoramento ativo")
             self._ready_fired = True
+            # Atualiza member count de todos os servidores no boot
+            for guild in self.bot.guilds:
+                await self._update_member_count(guild)
         else:
             log_system("Remnant reconectado com sucesso.")
 
     @commands.Cog.listener()
     async def on_command(self, ctx):
-        # CORRIGIDO: removida a inserção manual no banco com esquema antigo.
-        # O verbose.py já grava tudo no banco via SQLiteHandler automaticamente.
-        # Esta linha é suficiente — não duplica e usa o esquema correto.
         log_command(
             f"{ctx.author} ({ctx.author.id})",
             ctx.command.name,
@@ -35,9 +34,31 @@ class Events(commands.Cog):
             str(ctx.channel)
         )
 
+    # --- MEMBER COUNT AUTOMÁTICO ---
+    async def _update_member_count(self, guild: discord.Guild):
+        try:
+            if self.bot.db:
+                await self.bot.db.execute(
+                    "INSERT OR REPLACE INTO guild_stats (guild_id, guild_name, member_count, updated_at) VALUES (?, ?, ?, datetime('now'))",
+                    (guild.id, guild.name, guild.member_count)
+                )
+                await self.bot.db.commit()
+        except Exception as e:
+            log_error("events.update_member_count", e)
+
+    @commands.Cog.listener()
+    async def on_member_join(self, member: discord.Member):
+        log_event("MEMBER_JOIN", f"{member.name} ({member.id}) entrou em {member.guild.name}")
+        await self._update_member_count(member.guild)
+
+    @commands.Cog.listener()
+    async def on_member_remove(self, member: discord.Member):
+        await self._update_member_count(member.guild)
+
     @commands.Cog.listener()
     async def on_guild_join(self, guild: discord.Guild):
         log_event("GUILD_JOIN", f"Bot adicionado em: {guild.name} ({guild.id}) | Dono: {guild.owner} | Membros: {guild.member_count}")
+        await self._update_member_count(guild)
 
         if OWNER_ID == 0:
             return
@@ -51,12 +72,8 @@ class Events(commands.Cog):
             embed.add_field(name="🌐 Servidor", value=f"{guild.name} (`{guild.id}`)", inline=False)
             embed.add_field(name="👑 Dono", value=str(guild.owner), inline=True)
             embed.add_field(name="👥 Membros", value=str(guild.member_count), inline=True)
-
-            # CORRIGIDO: discord.Embed.Empty foi removido no discord.py v2.
-            # set_thumbnail ignora silenciosamente se não for chamado — não precisa de fallback.
             if guild.icon:
                 embed.set_thumbnail(url=guild.icon.url)
-
             await owner.send(embed=embed)
         except Exception as e:
             log_error("events.on_guild_join", e)

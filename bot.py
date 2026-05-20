@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from verbose import log_system, log_error
 import subprocess
 
-subprocess.Popen([sys.executable, "-m", "streamlit", "run", "painel.py"])
+subprocess.Popen([sys.executable, "dashboard.py"])  # Inicia o dashboard em paralelo
 print("🚀 Dashboard iniciado! Ligando o bot Remnant...")
 
 load_dotenv()
@@ -78,7 +78,6 @@ class RemnantBot(commands.Bot):
         try:
             self.db = await aiosqlite.connect("bot.db")
 
-            # Tabela de logs — compatível com o painel (verbose.py grava aqui via SQLiteHandler)
             await self.db.execute("""
                 CREATE TABLE IF NOT EXISTS logs (
                     id        INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -89,7 +88,6 @@ class RemnantBot(commands.Bot):
                 )
             """)
 
-            # Tabela de chat logs
             await self.db.execute("""
                 CREATE TABLE IF NOT EXISTS chat_logs (
                     id         INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -97,6 +95,16 @@ class RemnantBot(commands.Bot):
                     channel_id INTEGER,
                     content    TEXT,
                     timestamp  TEXT
+                )
+            """)
+
+            # Tabela de estatísticas por servidor (member count automático)
+            await self.db.execute("""
+                CREATE TABLE IF NOT EXISTS guild_stats (
+                    guild_id     INTEGER PRIMARY KEY,
+                    guild_name   TEXT,
+                    member_count INTEGER,
+                    updated_at   TEXT
                 )
             """)
 
@@ -118,7 +126,6 @@ class RemnantBot(commands.Bot):
                     except Exception as e:
                         log_error(f"bot.setup_hook.cog.{modulo}", e)
 
-        # Inicia o terminal interativo em segundo plano
         asyncio.create_task(self.terminal_listener())
 
     async def close(self):
@@ -129,7 +136,6 @@ class RemnantBot(commands.Bot):
 
 bot = RemnantBot()
 
-# --- ON_MESSAGE CENTRALIZADO ---
 @bot.event
 async def on_message(message):
     if message.author.bot:

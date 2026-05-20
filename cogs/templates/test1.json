@@ -1,0 +1,185 @@
+{
+  "nome": "Servidor de jogos(nome temporário)",
+  "padrao": false,
+  "cargos": [
+    {
+      "nome": "Dono",
+      "cor": 3014718,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "ADM",
+      "cor": 10181046,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Bots",
+      "cor": 15844367,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Membro",
+      "cor": 1752220,
+      "hoist": true,
+      "perms": "recruta"
+    }
+  ],
+  "categorias": [
+    {
+      "nome": "Inicio",
+      "canais": [
+        {
+          "nome": "👋┃entrada",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "🚪┃saida",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "🚀┃impulso",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "📢┃anúncios",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "📜┃regras",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "🌐┃parcerias",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "📢┃avisos",
+          "tipo": "text",
+          "somente_leitura": true,
+          "staff_only": true
+        },
+        {
+          "nome": "✨┃silksong-mobile_news",
+          "tipo": "text",
+          "staff_only": true
+        }
+      ]
+    },
+    {
+      "nome": "Comandos",
+      "canais": [
+        {
+          "nome": "✨┃loritta",
+          "tipo": "text"
+        },
+        {
+          "nome": "🌸┃mudae",
+          "tipo": "text",
+          "staff_only": true
+        }
+      ]
+    },
+    {
+      "nome": "💬 Chats",
+      "canais": [
+        {
+          "nome": "💭┃geral",
+          "tipo": "text"
+        },
+        {
+          "nome": "🎨┃midia",
+          "tipo": "text"
+        },
+        {
+          "nome": "😂┃memes",
+          "tipo": "text"
+        },
+        {
+          "nome": "💡┃sugestões",
+          "tipo": "text"
+        },
+        {
+          "nome": "❓┃duvidas",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "📂 Arquivos",
+      "canais": [
+        {
+          "nome": "💻┃jogos-pc",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "📱┃jogos-mobile",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "🎮┃roms-e-isos",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "🕹┃emuladores",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "📦┃apps",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "spam",
+          "tipo": "text",
+          "somente_leitura": true
+        }
+      ]
+    },
+    {
+      "nome": "🔊 Canais de voz",
+      "canais": [
+        {
+          "nome": "🏠┃Lobby",
+          "tipo": "voice"
+        },
+        {
+          "nome": "🎮┃Jogando",
+          "tipo": "voice"
+        },
+        {
+          "nome": "🔊┃voz-da-staff",
+          "tipo": "voice",
+          "staff_only": true
+        }
+      ]
+    },
+    {
+      "nome": "🔹Staff",
+      "canais": [
+        {
+          "nome": "🛠┃staff-chat",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "🔊┃voz-da-staff",
+          "tipo": "text",
+          "staff_only": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+    "nome": "Guilda de Jogo",
+    "cargos": [
+        {"nome": "👑 Lider",    "cor": 16766720, "hoist": true,  "perms": "admin"},
+        {"nome": "⚔️ Oficial",   "cor": 15158332, "hoist": true,  "perms": "mod"},
+        {"nome": "🛡️ Veterano",  "cor": 3447003,  "hoist": true,  "perms": "vip"},
+        {"nome": "🗡️ Membro",    "cor": 3066993,  "hoist": true,  "perms": "membro"},
+        {"nome": "🔰 Recruta",   "cor": 9936031,  "hoist": false, "perms": "recruta"}
+    ],
+    "categorias": [
+        {
+            "nome": "🌟 INÍCIO",
+            "canais": [
+                {"nome": "👋・boas-vindas",  "tipo": "text",  "somente_leitura": true},
+                {"nome": "🚀・boosts",       "tipo": "text",  "somente_leitura": true}
+            ]
+        },
+        {
+            "nome": "📢 INFORMAÇÕES",
+            "canais": [
+                {"nome": "📋・regras",       "tipo": "text",  "somente_leitura": true},
+                {"nome": "📢・anúncios",     "tipo": "text",  "somente_leitura": true},
+                {"nome": "🗓️・eventos",      "tipo": "text",  "somente_leitura": true}
+            ]
+        },
+        {
+            "nome": "💬 GERAL",
+            "canais": [
+                {"nome": "💬・chat-geral",   "tipo": "text"},
+                {"nome": "😂・memes",        "tipo": "text"},
+                {"nome": "🖼️・mídia",        "tipo": "text"},
+                {"nome": "🎙️・voz-geral",    "tipo": "voice"}
+            ]
+        },
+        {
+            "nome": "⚔️ GUILDA",
+            "canais": [
+                {"nome": "📊・progresso",    "tipo": "text"},
+                {"nome": "🗺️・estratégia",   "tipo": "text"},
+                {"nome": "📝・recrutamento", "tipo": "text"},
+                {"nome": "🎫・ticket",       "tipo": "text"},
+                {"nome": "⚔️・raids",        "tipo": "voice"},
+                {"nome": "🏹・pvp",          "tipo": "voice"}
+            ]
+        },
+        {
+            "nome": "📜 LOGS DO SERVIDOR",
+            "canais": [
+                {"nome": "🚪・saídas",       "tipo": "text",  "somente_leitura": true, "staff_only": true, "staff_roles": ["lider", "oficial"]},
+                {"nome": "📜・logs-1",       "tipo": "text",  "staff_only": true, "staff_roles": ["lider", "oficial"]},
+                {"nome": "📜・logs-2",       "tipo": "text",  "staff_only": true, "staff_roles": ["lider", "oficial"]},
+                {"nome": "🎫・log-ticket",   "tipo": "text",  "staff_only": true, "staff_roles": ["lider", "oficial"]}
+            ]
+        },
+        {
+            "nome": "🔒 STAFF",
+            "canais": [
+                {"nome": "🔒・staff-chat",   "tipo": "text",  "staff_only": true, "staff_roles": ["lider", "oficial"]},
+                {"nome": "📋・logs",         "tipo": "text",  "staff_only": true, "staff_roles": ["lider", "oficial"]},
+                {"nome": "🎙️・staff-voz",    "tipo": "voice", "staff_only": true, "staff_roles": ["lider", "oficial"]}
+            ]
+        }
+    ]
+}

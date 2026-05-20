@@ -1,0 +1,483 @@
+{
+  "nome": "HYSCORE SAB - TEMPORADA 1",
+  "padrao": false,
+  "cargos": [
+    {
+      "nome": "🐲╰╮HYSCORE SA",
+      "cor": 4915200,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🤖╰╮BOT",
+      "cor": 3447003,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "👑╰╮DONO",
+      "cor": 657930,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🗄╰╮ADM",
+      "cor": 3447003,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "👮‍♂️╰╮STAFF",
+      "cor": 15158332,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "⚙️╰╮Testing",
+      "cor": 3866709,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "⚒️╰╮Equipe Staff",
+      "cor": 16250871,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "👑╰╮LIDER",
+      "cor": 14167341,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "yNero69",
+      "cor": 2687231,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Remnant bot",
+      "cor": 0,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🌱 Semente",
+      "cor": 9159498,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🌿 Brotinho",
+      "cor": 5025616,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🌳 Árvore",
+      "cor": 3046706,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "⚡ Elétrico",
+      "cor": 16771899,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🔥 Flamejante",
+      "cor": 16733986,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "💧 Torrente",
+      "cor": 2201331,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "❄️ Glacial",
+      "cor": 48340,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🌌 Cósmico",
+      "cor": 6765239,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "💎 Diamante",
+      "cor": 58879,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🏆 Campeão",
+      "cor": 16766720,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "👑 Lenda",
+      "cor": 16740096,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🌟 Imortal",
+      "cor": 16777215,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "👤╰╮Membro",
+      "cor": 3066993,
+      "hoist": true,
+      "perms": "recruta"
+    }
+  ],
+  "categorias": [
+    {
+      "nome": "Sem Categoria",
+      "canais": [
+        {
+          "nome": "moderator-only",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "╭╼╾╼┫ 🔰 𝗜𝗡𝗜𝗖𝗜𝗢",
+      "canais": [
+        {
+          "nome": "╭︲☕┇bem-vindo",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "├︲🌐┇ip-e-porta",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "╰︲✉️┇invite",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "╭╼╾╼┫ 🚨 𝗜𝗠𝗣𝗢𝗥𝗧𝗔𝗡𝗧𝗘",
+      "canais": [
+        {
+          "nome": "╭︲📜┇regras",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲📯┇anúncios",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲🌐┇atualizações",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲📊┇enquetes",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲🎉┇sorteios",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲🚀┇impulsos",
+          "tipo": "text"
+        },
+        {
+          "nome": "╰︲💎┇booster",
+          "tipo": "text"
+        },
+        {
+          "nome": "Hyscore Eventos",
+          "tipo": "stage"
+        }
+      ]
+    },
+    {
+      "nome": "╭╼╾╼┫ 🛍️ 𝗛𝗬𝗦𝗧𝗢𝗥𝗘",
+      "canais": [
+        {
+          "nome": "╭︲📜┇hystore",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲💵┇compradores",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "├︲✅┇𝗩𝗘𝗡𝗗𝗔𝗦",
+          "tipo": "text",
+          "staff_only": true
+        }
+      ]
+    },
+    {
+      "nome": "╭╼╾╼┫ 🗯️ 𝗗𝗜𝗔𝗟𝗢𝗚𝗢",
+      "canais": [
+        {
+          "nome": "╭︲💬┇chat-geral",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲📸┇mídias",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲🤖┇comandos",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲📦┇bump",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "╭╼╾╼┫ 🌎 𝗠𝗜𝗡𝗘𝗖𝗥𝗔𝗙𝗧",
+      "canais": [
+        {
+          "nome": "╭︲🌐┇status",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲📥┇minecraft",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲🚫┇banimentos",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲🎥┇videos",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "╭╼╾╼┫ 🥊 𝗖𝗟𝗔𝗡𝗦",
+      "canais": [
+        {
+          "nome": "╭︲🛡️┇criar-clã",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "├︲⚔️┇clans",
+          "tipo": "text"
+        },
+        {
+          "nome": "╰︲👑┇ranks",
+          "tipo": "text",
+          "somente_leitura": true
+        }
+      ]
+    },
+    {
+      "nome": "╭╼╾╼┫ 🥊 𝗖𝗟𝗔𝗡𝗦",
+      "canais": [
+        {
+          "nome": "clan-hyscore",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "clan-top",
+          "tipo": "text",
+          "staff_only": true
+        }
+      ]
+    },
+    {
+      "nome": "╭╼╾╼┫ ☎️ 𝗦𝗨𝗣𝗢𝗥𝗧𝗘",
+      "canais": [
+        {
+          "nome": "╭︲🎟️┇ticket",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲🔨┇punições",
+          "tipo": "text",
+          "somente_leitura": true
+        }
+      ]
+    },
+    {
+      "nome": "╭╼╾╼┫ 🥇 𝗥𝗔𝗡𝗞𝗜𝗡𝗚𝗦",
+      "canais": [
+        {
+          "nome": "╭︲🥇┇top-clans",
+          "tipo": "text"
+        },
+        {
+          "nome": "├︲🥇┇top-player",
+          "tipo": "text"
+        },
+        {
+          "nome": "╰︲💵┇top-compradores",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "╭╼╾╼┫ 📞 𝗖𝗔𝗟𝗟𝗦",
+      "canais": [
+        {
+          "nome": "╭︲🎶┇música-chat",
+          "tipo": "text"
+        },
+        {
+          "nome": "│︲📻┇Rádio",
+          "tipo": "voice"
+        },
+        {
+          "nome": "│︲🎵┇Música",
+          "tipo": "voice"
+        },
+        {
+          "nome": "│︲☕┇Call",
+          "tipo": "voice"
+        },
+        {
+          "nome": "│︲☕┇Call",
+          "tipo": "voice"
+        },
+        {
+          "nome": "│︲🎏┇Dupla",
+          "tipo": "voice"
+        },
+        {
+          "nome": "│︲🎏┇Dupla",
+          "tipo": "voice"
+        },
+        {
+          "nome": "│︲🔱┇Trio",
+          "tipo": "voice"
+        },
+        {
+          "nome": "│︲🔱┇Trio",
+          "tipo": "voice"
+        },
+        {
+          "nome": "│︲🍀┇Squad",
+          "tipo": "voice"
+        },
+        {
+          "nome": "│︲🍀┇Squad",
+          "tipo": "voice"
+        },
+        {
+          "nome": "│︲🖐️┇Quinteto",
+          "tipo": "voice"
+        },
+        {
+          "nome": "╰︲🖐️┇Quinteto",
+          "tipo": "voice"
+        }
+      ]
+    },
+    {
+      "nome": "――――――【 𝗟𝗢𝗚𝗦 】――――――",
+      "canais": [
+        {
+          "nome": "╭︲🗯️┇chat-staff",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "╭︲🗯️┇chat-recrutas",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "—͟͞͞📷・𝗜𝗠𝗔𝗚𝗘𝗡𝗦",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "—͟͞͞🚫・𝗕𝗔𝗡𝗜𝗠𝗘𝗡𝗧𝗢𝗦-𝗟𝗢𝗚",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "—͟͞͞🤖・𝗖𝗢𝗠𝗔𝗡𝗗𝗢𝗦",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "│︲🛫┇saiu",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "│︲⚔️┇log-evento",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "│︲🪵┇logs",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "│︲🪵┇console",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "│︲🪵┇msg",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "│︲🪵┇logs-tickets",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "│︲🪵┇logs-compras",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "╭︲🗯️┇chat-nero",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "╭︲🗯️┇chat-testwbot",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "│︲⚒️┇Call-Staff",
+          "tipo": "voice",
+          "staff_only": true
+        }
+      ]
+    },
+    {
+      "nome": "Jogos",
+      "canais": [
+        {
+          "nome": "count",
+          "tipo": "text"
+        }
+      ]
+    }
+  ]
+}

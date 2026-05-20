@@ -1,0 +1,66 @@
+{
+    "nome": "Servidor de Minecraft",
+    "cargos": [
+        {"nome": "👑 Owner",     "cor": 16766720, "hoist": true,  "perms": "admin"},
+        {"nome": "🔨 Admin",     "cor": 15158332, "hoist": true,  "perms": "admin"},
+        {"nome": "🛡️ Moderador", "cor": 3447003,  "hoist": true,  "perms": "mod"},
+        {"nome": "💎 VIP",       "cor": 10181046, "hoist": true,  "perms": "vip"},
+        {"nome": "🪵 Jogador",   "cor": 3066993,  "hoist": true,  "perms": "membro"},
+        {"nome": "🥚 Novato",    "cor": 9936031,  "hoist": false, "perms": "recruta"}
+    ],
+    "categorias": [
+        {
+            "nome": "🌟 INÍCIO",
+            "canais": [
+                {"nome": "👋・boas-vindas",      "tipo": "text",  "somente_leitura": true},
+                {"nome": "🚀・boosts",           "tipo": "text",  "somente_leitura": true}
+            ]
+        },
+        {
+            "nome": "📢 SERVIDOR",
+            "canais": [
+                {"nome": "📋・regras",           "tipo": "text",  "somente_leitura": true},
+                {"nome": "📢・anúncios",         "tipo": "text",  "somente_leitura": true},
+                {"nome": "🔄・atualizações",     "tipo": "text",  "somente_leitura": true},
+                {"nome": "📊・status-servidor",  "tipo": "text",  "somente_leitura": true}
+            ]
+        },
+        {
+            "nome": "💬 COMUNIDADE",
+            "canais": [
+                {"nome": "💬・chat-geral",       "tipo": "text"},
+                {"nome": "🏗️・construções",      "tipo": "text"},
+                {"nome": "🤝・trocas",           "tipo": "text"},
+                {"nome": "❓・ajuda",            "tipo": "text"},
+                {"nome": "🎫・ticket",           "tipo": "text"},
+                {"nome": "🎙️・voz-geral",        "tipo": "voice"}
+            ]
+        },
+        {
+            "nome": "🎮 JOGOS",
+            "canais": [
+                {"nome": "🗺️・survival",         "tipo": "voice"},
+                {"nome": "🏙️・criativo",         "tipo": "voice"},
+                {"nome": "⚔️・pvp",              "tipo": "voice"},
+                {"nome": "💰・factions",         "tipo": "voice"}
+            ]
+        },
+        {
+            "nome": "📜 LOGS DO SERVIDOR",
+            "canais": [
+                {"nome": "🚪・saídas",           "tipo": "text",  "somente_leitura": true, "staff_only": true, "staff_roles": ["owner", "admin", "moderador"]},
+                {"nome": "📜・logs-1",           "tipo": "text",  "staff_only": true, "staff_roles": ["owner", "admin", "moderador"]},
+                {"nome": "📜・logs-2",           "tipo": "text",  "staff_only": true, "staff_roles": ["owner", "admin", "moderador"]},
+                {"nome": "🎫・log-ticket",       "tipo": "text",  "staff_only": true, "staff_roles": ["owner", "admin", "moderador"]}
+            ]
+        },
+        {
+            "nome": "🔒 STAFF",
+            "canais": [
+                {"nome": "🔒・staff-chat",       "tipo": "text",  "staff_only": true, "staff_roles": ["owner", "admin", "moderador"]},
+                {"nome": "🔨・punições",         "tipo": "text",  "staff_only": true, "staff_roles": ["owner", "admin", "moderador"]},
+                {"nome": "🎙️・staff-voz",        "tipo": "voice", "staff_only": true, "staff_roles": ["owner", "admin", "moderador"]}
+            ]
+        }
+    ]
+}

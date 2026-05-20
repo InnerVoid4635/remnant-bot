@@ -1,0 +1,541 @@
+{
+  "nome": "Dinastia Jaw",
+  "padrao": false,
+  "cargos": [
+    {
+      "nome": "dono do servidor",
+      "cor": 7419530,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "O admin",
+      "cor": 16711680,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Bot",
+      "cor": 15844367,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Rosa",
+      "cor": 16761035,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Rosa vibrante",
+      "cor": 16738740,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Rosa Neon",
+      "cor": 16716947,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Vermelho",
+      "cor": 16711680,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Rosa Pastel",
+      "cor": 16758465,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Vermelho Vibrante",
+      "cor": 16720896,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Rosa Chiclete",
+      "cor": 16737970,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Vermelho Neon",
+      "cor": 16713530,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Preto",
+      "cor": 1973790,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Vermelho Pastel",
+      "cor": 16738657,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Cinza",
+      "cor": 8421504,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Vermelho Rubi",
+      "cor": 13697052,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Branco",
+      "cor": 16119285,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Laranja",
+      "cor": 16753920,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Laranja Vibrante",
+      "cor": 16744231,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Laranja Neon",
+      "cor": 16736031,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Laranja Pastel",
+      "cor": 16765353,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Laranja Ambar",
+      "cor": 16749056,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Amarelo",
+      "cor": 16776960,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Amarelo Vibrante",
+      "cor": 16768256,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Amarelo Neon",
+      "cor": 16777011,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Amarelo Pastel",
+      "cor": 16775885,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Amarelo Gold",
+      "cor": 16766720,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Verde",
+      "cor": 32768,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Verde Vibrante",
+      "cor": 65367,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Verde Neon",
+      "cor": 3800852,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Verde Pastel",
+      "cor": 7855479,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Verde Esmeralda",
+      "cor": 51543,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Azul",
+      "cor": 255,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Azul Vibrante",
+      "cor": 2061822,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Azul Neon",
+      "cor": 1770403,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Azul Pastel",
+      "cor": 9031664,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Azul Celeste",
+      "cor": 53247,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Roxo",
+      "cor": 8388736,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Roxo Vibrante",
+      "cor": 10170623,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Roxo Neon",
+      "cor": 10494192,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Roxo Pastel",
+      "cor": 13347531,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Lilas",
+      "cor": 11953874,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Restless Remnant",
+      "cor": 3152180,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Agony",
+      "cor": 6950317,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Umbra",
+      "cor": 2829099,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Withered Soul",
+      "cor": 65436,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Eternal Remnant",
+      "cor": 3866656,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Tormented Spirit",
+      "cor": 8388640,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Crying Child",
+      "cor": 11579568,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Phantoms",
+      "cor": 3497531,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Ping Artes Oficiais",
+      "cor": 0,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Dublador",
+      "cor": 0,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Ping Video Novo",
+      "cor": 6323595,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Editor",
+      "cor": 0,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Artistas",
+      "cor": 0,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "-18",
+      "cor": 0,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Ping Divulgacoes",
+      "cor": 0,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "+18",
+      "cor": 0,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Ping comunidade",
+      "cor": 0,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "tester",
+      "cor": 0,
+      "hoist": false,
+      "perms": "recruta"
+    }
+  ],
+  "categorias": [
+    {
+      "nome": "🏠 Início",
+      "canais": [
+        {
+          "nome": "📥-•-entrada",
+          "tipo": "text"
+        },
+        {
+          "nome": "📤-•-saída",
+          "tipo": "text"
+        },
+        {
+          "nome": "📜-•-regras",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "🎭-•-cargos",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "📑-•-guia",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "🌈-•-cores",
+          "tipo": "text",
+          "somente_leitura": true
+        }
+      ]
+    },
+    {
+      "nome": "Bots",
+      "canais": [
+        {
+          "nome": "🤖-•-comandos",
+          "tipo": "text"
+        },
+        {
+          "nome": "🌸-•-mudae",
+          "tipo": "text"
+        },
+        {
+          "nome": "✨-•-xp_lorita",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "🐾-•-pokemeow",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "📢 Informações!",
+      "canais": [
+        {
+          "nome": "🔔-•-notificações🐰",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "📢-•-avisos🐤",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "📌-•-divulgações",
+          "tipo": "text"
+        },
+        {
+          "nome": "🚀-•-novidades-e-projetos🐻",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "💬 Geral",
+      "canais": [
+        {
+          "nome": "💭-•-bate-papo",
+          "tipo": "text"
+        },
+        {
+          "nome": "😂-•-memes🐵",
+          "tipo": "text"
+        },
+        {
+          "nome": "🗨️-•-faz-conversa",
+          "tipo": "text"
+        },
+        {
+          "nome": "📸-•-mídias-🐹✉",
+          "tipo": "text"
+        },
+        {
+          "nome": "test_bot",
+          "tipo": "text",
+          "staff_only": true
+        }
+      ]
+    },
+    {
+      "nome": "🔊 • CANAIS DE VOZ",
+      "canais": [
+        {
+          "nome": "🔇-•-sem-mic",
+          "tipo": "text"
+        },
+        {
+          "nome": "🔊-•-Geral",
+          "tipo": "voice"
+        },
+        {
+          "nome": "📞-•-Manos-do-telefone",
+          "tipo": "voice"
+        },
+        {
+          "nome": "🎵-•-Musica",
+          "tipo": "voice"
+        }
+      ]
+    },
+    {
+      "nome": "❗ Extras",
+      "canais": [
+        {
+          "nome": "⚠️-•-desabafos",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "💡-•-helpy-ideias",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "🎨 • GALERIA DE ARTE",
+      "canais": [
+        {
+          "nome": "🎨-•-suas-artes✒",
+          "tipo": "text"
+        },
+        {
+          "nome": "🖌️-•-fanarts📝",
+          "tipo": "text"
+        },
+        {
+          "nome": "📜-•-artes-oficiais",
+          "tipo": "text"
+        },
+        {
+          "nome": "🐰-•-o-spring-jaw",
+          "tipo": "text"
+        },
+        {
+          "nome": "🎭-•-sugestões-emojis",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "🛠️ • MODERAÇÃO",
+      "canais": [
+        {
+          "nome": "🛠️-moderação",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "logs",
+          "tipo": "text",
+          "staff_only": true
+        }
+      ]
+    }
+  ]
+}

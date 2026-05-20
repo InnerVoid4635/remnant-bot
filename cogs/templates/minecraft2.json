@@ -1,0 +1,153 @@
+{
+  "nome": "🃏Ghostkill 50#",
+  "padrao": false,
+  "cargos": [
+    {"nome": "👑DONO👑",          "cor": 15844367, "hoist": true,  "perms": "recruta"},
+    {"nome": "👑SUB DONO👑",      "cor": 15105570, "hoist": true,  "perms": "recruta"},
+    {"nome": "🖥️DEV",             "cor": 16711680, "hoist": true,  "perms": "recruta"},
+    {"nome": "🚀ADMINISTRADOR",   "cor": 11142662, "hoist": true,  "perms": "recruta"},
+    {"nome": "🍀STAFF",           "cor": 7419530,  "hoist": true,  "perms": "recruta"},
+    {"nome": "🔧SUPORTE",         "cor": 13054241, "hoist": true,  "perms": "recruta"},
+    {"nome": "🤖BOTS🤖",          "cor": 15158332, "hoist": true,  "perms": "recruta"},
+    {"nome": "💵 CLIENTE",        "cor": 8191744,  "hoist": false, "perms": "recruta"},
+    {"nome": "🔮 BOOSTER",        "cor": 10181046, "hoist": false, "perms": "recruta"},
+    {"nome": "🧓veterano🧓",      "cor": 2067276,  "hoist": true,  "perms": "recruta"},
+    {"nome": "🧑‍🦱Membros🧑‍🦱",      "cor": 39935,    "hoist": true,  "perms": "recruta"},
+    {"nome": "「💲」 VENDEDOR",   "cor": 2067276,  "hoist": false, "perms": "recruta"},
+    {"nome": "Mine",              "cor": 0,        "hoist": false, "perms": "recruta"},
+    {"nome": "Bedrock",           "cor": 0,        "hoist": false, "perms": "recruta"},
+    {"nome": "1",                 "cor": 0,        "hoist": false, "perms": "recruta"},
+    {"nome": "Bot divulgação",    "cor": 0,        "hoist": false, "perms": "recruta"}
+  ],
+  "categorias": [
+    {
+      "nome": "Sem Categoria",
+      "canais": [
+        {"nome": "bump", "tipo": "text"}
+      ]
+    },
+    {
+      "nome": "------COMEÇO------",
+      "canais": [
+        {"nome": "—͟͞͞-🎉𝐵𝐸𝑀-𝑉𝐼𝑁𝐷𝑂",           "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-🙁𝐴𝐷𝐸𝑈𝑆",               "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-📍𝐼𝑃-𝐸-𝑃𝑂𝑅𝑇𝐴",          "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-⭐𝐵𝑂𝑂𝑆𝑇𝐸𝑅",             "tipo": "text", "somente_leitura": true}
+      ]
+    },
+    {
+      "nome": "------INFORMAÇÕES------",
+      "canais": [
+        {"nome": "—͟͞͞-🚨𝐴𝑁𝑈𝑁𝐶𝐼𝑂𝑆",            "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-📕𝑅𝐸𝐺𝑅𝐴𝑆",              "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-🎁𝐸𝑉𝐸𝑁𝑇𝑂𝑆",             "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-📊𝐸𝑁𝑄𝑈𝐸𝑇𝐸𝑆",            "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-📱𝑉𝐼𝐷𝐸𝑂𝑆-𝐷𝑂-𝑆𝐸𝑅𝑉𝐸",    "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-🎟️𝑇𝐼𝐶𝐾𝐸𝑇",              "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-🤝𝑃𝐴𝑅𝐶𝐸𝑅𝐼𝐴𝑆",           "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-📥𝑫𝑶𝑾𝑵𝑳𝑶𝑨𝑫-𝑴𝑰𝑵𝑬-𝑷𝑰𝑹𝑨𝑻𝑨", "tipo": "text", "somente_leitura": true}
+      ]
+    },
+    {
+      "nome": "------CHATS------",
+      "canais": [
+        {"nome": "—͟͞͞-🌐𝐶𝐻𝐴𝑇-𝐺𝐸𝑅𝐴𝐿",          "tipo": "text"},
+        {"nome": "—͟͞͞-📸𝑀𝐼𝐷𝐼𝐴𝑆",              "tipo": "text"},
+        {"nome": "—͟͞͞-💡𝑆𝑈𝐺𝐸𝑆𝑇𝑂𝐸𝑆",           "tipo": "text"},
+        {"nome": "—͟͞͞-🤖𝐶𝑂𝑀𝐴𝑁𝐷𝑂𝑆",            "tipo": "text"},
+        {"nome": "—͟͞͞-❓𝐷𝑈𝑉𝐼𝐷𝐴𝑆",             "tipo": "text"}
+      ]
+    },
+    {
+      "nome": "------CALL------",
+      "canais": [
+        {"nome": "🔊call-duo",      "tipo": "voice"},
+        {"nome": "🔊call-duo",      "tipo": "voice"},
+        {"nome": "🔊call-duo",      "tipo": "voice"},
+        {"nome": "🔊call-trio",     "tipo": "voice"},
+        {"nome": "🔊call-trio",     "tipo": "voice"},
+        {"nome": "🔊call-trio",     "tipo": "voice"},
+        {"nome": "🔊call-quarteto", "tipo": "voice"},
+        {"nome": "🔊call-quarteto", "tipo": "voice"},
+        {"nome": "🔊call-quarteto", "tipo": "voice"},
+        {"nome": "🔊call-quinteto", "tipo": "voice"},
+        {"nome": "🔊call-quinteto", "tipo": "voice"},
+        {"nome": "🔊call-quinteto", "tipo": "voice"},
+        {"nome": "🕵️call analise", "tipo": "voice"}
+      ]
+    },
+    {
+      "nome": "------LOJA------",
+      "canais": [
+        {"nome": "—͟͞͞-💵𝑉𝐸𝑁𝐷𝐴𝑆",              "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-💳𝑃𝐼𝑋",                "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-🌍𝑇𝑃-𝐸𝑀-𝐶𝑂𝑅𝐷𝑆",        "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-⚔️𝐾𝐼𝑇𝑆-𝑃𝑉𝑃",           "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-⚔️𝐾𝐼𝑇-𝑁𝑂𝑅𝑀𝐴𝐼𝑆",        "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-⏳𝐾𝐼𝑇-𝑇𝐸𝑀𝑃𝑂𝑅𝐴𝑅𝐼𝑂",     "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-🙏𝐷𝑂𝐴𝐶𝑂𝐸𝑆",            "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-📜𝐾𝐼𝑇𝑆-𝑃𝐸𝑅𝑆𝑂𝑁𝐴𝐿𝐼𝑍𝐴𝐷𝑂𝑆", "tipo": "text", "somente_leitura": true}
+      ]
+    },
+    {
+      "nome": "-----Seja algo------",
+      "canais": [
+        {"nome": "—͟͞͞-👤𝑆𝐸𝐽𝐴-𝑆𝑇𝐴𝐹𝐹",          "tipo": "text"},
+        {"nome": "—͟͞͞-👑𝑆𝐸𝐽𝐴-𝑉𝐼𝑃",            "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-🔮𝑆𝐸𝐽𝐴-𝐵𝑂𝑂𝑆𝑇𝐸𝑅",        "tipo": "text"},
+        {"nome": "—͟͞͞-🎥𝑆𝐸𝐽𝐴-𝐷𝐼𝑉𝑈𝐿𝐺𝐴𝐷𝑂𝑅",    "tipo": "text"}
+      ]
+    },
+    {
+      "nome": "------TOPS------",
+      "canais": [
+        {"nome": "—͟͞͞-⚔️𝑇𝑂𝑃-𝑃𝑉𝑃",            "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-🛡️𝑇𝑂𝑃𝑆-𝐶𝐿𝐴𝑆",          "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-💰𝑇𝑂𝑃-𝐶𝑂𝑀𝑃𝑅𝐴𝐷𝑂𝑅𝐸𝑆",    "tipo": "text", "somente_leitura": true}
+      ]
+    },
+    {
+      "nome": "------CLÃ------",
+      "canais": [
+        {"nome": "—͟͞͞-🛡️𝐶𝐿𝐴𝑆",               "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-🛡️𝐺𝑈𝐸𝑅𝑅𝐴-𝐷𝐸-𝐶𝐿𝐴𝑆",    "tipo": "text", "somente_leitura": true},
+        {"nome": "—͟͞͞-🛡️𝑅𝐸𝐺𝐼𝑆𝑇𝑅𝐴𝑅-𝐶𝐿𝐴",     "tipo": "text", "somente_leitura": true}
+      ]
+    },
+    {
+      "nome": "Moderação",
+      "canais": [
+        {
+          "nome": "chat-staff",
+          "tipo": "text",
+          "staff_only": true,
+          "staff_roles": ["dono", "sub dono", "dev", "administrador", "staff", "suporte"]
+        },
+        {
+          "nome": "bump",
+          "tipo": "text",
+          "staff_only": true,
+          "staff_roles": ["dono", "sub dono", "dev", "administrador", "staff", "suporte"]
+        },
+        {
+          "nome": "spam",
+          "tipo": "text",
+          "staff_only": true,
+          "staff_roles": ["dono", "sub dono", "dev", "administrador", "staff", "suporte"]
+        },
+        {
+          "nome": "log",
+          "tipo": "text",
+          "staff_only": true,
+          "staff_roles": ["dono", "sub dono", "dev", "administrador", "staff", "suporte"]
+        },
+        {
+          "nome": "call-staff",
+          "tipo": "voice",
+          "staff_only": true,
+          "staff_roles": ["dono", "sub dono", "dev", "administrador", "staff", "suporte"]
+        }
+      ]
+    }
+  ]
+}

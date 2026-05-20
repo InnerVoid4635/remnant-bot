@@ -1,0 +1,71 @@
+{
+    "nome": "Comunidade de Streamer",
+    "cargos": [
+        {"nome": "👑 Streamer",  "cor": 9519615,  "hoist": true,  "perms": "admin"},
+        {"nome": "🎖️ Moderador", "cor": 15158332, "hoist": true,  "perms": "mod"},
+        {"nome": "💜 Sub",       "cor": 10181046, "hoist": true,  "perms": "vip"},
+        {"nome": "⭐ Fiel",      "cor": 16039186, "hoist": true,  "perms": "vip"},
+        {"nome": "👤 Seguidor",  "cor": 3066993,  "hoist": true,  "perms": "membro"},
+        {"nome": "🔰 Visitante", "cor": 9936031,  "hoist": false, "perms": "recruta"}
+    ],
+    "categorias": [
+        {
+            "nome": "🌟 INÍCIO",
+            "canais": [
+                {"nome": "👋・boas-vindas",      "tipo": "text",  "somente_leitura": true},
+                {"nome": "🚀・boosts",           "tipo": "text",  "somente_leitura": true}
+            ]
+        },
+        {
+            "nome": "📢 INFORMAÇÕES",
+            "canais": [
+                {"nome": "📋・regras",           "tipo": "text",  "somente_leitura": true},
+                {"nome": "📢・anúncios",         "tipo": "text",  "somente_leitura": true},
+                {"nome": "📅・agenda-lives",     "tipo": "text",  "somente_leitura": true}
+            ]
+        },
+        {
+            "nome": "💬 COMUNIDADE",
+            "canais": [
+                {"nome": "💬・chat-geral",       "tipo": "text"},
+                {"nome": "🎮・jogos",            "tipo": "text"},
+                {"nome": "😂・memes",            "tipo": "text"},
+                {"nome": "🖼️・fanarts",          "tipo": "text"},
+                {"nome": "🎫・ticket",           "tipo": "text"},
+                {"nome": "🎵・música",           "tipo": "voice"},
+                {"nome": "🎙️・voz-geral",        "tipo": "voice"}
+            ]
+        },
+        {
+            "nome": "🔴 LIVES",
+            "canais": [
+                {"nome": "🔴・ao-vivo",          "tipo": "text",  "somente_leitura": true},
+                {"nome": "💬・chat-live",        "tipo": "text"},
+                {"nome": "🎮・jogando-agora",    "tipo": "voice"}
+            ]
+        },
+        {
+            "nome": "💜 SUBS",
+            "canais": [
+                {"nome": "💜・chat-subs",        "tipo": "text",  "cargo_exclusivo": "💜 Sub"},
+                {"nome": "🎙️・voz-subs",         "tipo": "voice", "cargo_exclusivo": "💜 Sub"}
+            ]
+        },
+        {
+            "nome": "📜 LOGS DO SERVIDOR",
+            "canais": [
+                {"nome": "🚪・saídas",           "tipo": "text",  "somente_leitura": true, "staff_only": true, "staff_roles": ["streamer", "moderador"]},
+                {"nome": "📜・logs-1",           "tipo": "text",  "staff_only": true, "staff_roles": ["streamer", "moderador"]},
+                {"nome": "📜・logs-2",           "tipo": "text",  "staff_only": true, "staff_roles": ["streamer", "moderador"]},
+                {"nome": "🎫・log-ticket",       "tipo": "text",  "staff_only": true, "staff_roles": ["streamer", "moderador"]}
+            ]
+        },
+        {
+            "nome": "🔒 STAFF",
+            "canais": [
+                {"nome": "🔒・staff-chat",       "tipo": "text",  "staff_only": true, "staff_roles": ["streamer", "moderador"]},
+                {"nome": "🎙️・staff-voz",        "tipo": "voice", "staff_only": true, "staff_roles": ["streamer", "moderador"]}
+            ]
+        }
+    ]
+}

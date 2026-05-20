@@ -1,0 +1,565 @@
+{
+  "nome": "Jardim dourado",
+  "padrao": false,
+  "cargos": [
+    {
+      "nome": "👑│Owner",
+      "cor": 16711680,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "👑",
+      "cor": 3092790,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🌀│CoOwner",
+      "cor": 14286926,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "┗⎯⎯|🔷|ADMINISTRADOR|🔷|⎯⎯┑",
+      "cor": 3092790,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "┗⎯⎯⎯|🔵|BOTS|🔵|⎯⎯⎯┑",
+      "cor": 3092790,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "┗⎯⎯⎯|🔹|STAFF|🔹|⎯⎯⎯┑",
+      "cor": 3092790,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🔨│Mod",
+      "cor": 15844367,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "💠│Helper",
+      "cor": 3447003,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "┗⎯⎯⎯|🔸|ELITE|🔸|⎯⎯⎯┑",
+      "cor": 3092790,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "🌀│Amigos",
+      "cor": 3447003,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "❤️️｜trusted",
+      "cor": 3447003,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "┗⎯⎯⎯|🌍|MEMBROS|🌍|⎯⎯⎯┑",
+      "cor": 3092790,
+      "hoist": true,
+      "perms": "recruta"
+    },
+    {
+      "nome": "┗⎯⎯|🍀|Lucky Gaming ™|🍀|⎯⎯┑",
+      "cor": 3092790,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "This person is a server support",
+      "cor": 3092790,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Muted",
+      "cor": 8421504,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Vermelho",
+      "cor": 16711680,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Vermelho Neon",
+      "cor": 16713530,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Vermelho Vibrante",
+      "cor": 16720896,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Vermelho Pastel",
+      "cor": 16738657,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Vermelho Rubi",
+      "cor": 14684511,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Laranja",
+      "cor": 16753920,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Laranja Neon",
+      "cor": 16736031,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Laranja Vibrante",
+      "cor": 16738048,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Laranja Pastel",
+      "cor": 16765353,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Laranja Ambar",
+      "cor": 16760576,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Amarelo",
+      "cor": 16776960,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Amarelo Neon",
+      "cor": 16777011,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Amarelo Vibrante",
+      "cor": 16768256,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Amarelo Pastel",
+      "cor": 16775885,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Amarelo gold",
+      "cor": 16766720,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Verde",
+      "cor": 32768,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Verde Neon",
+      "cor": 3800852,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Verde Vibrante",
+      "cor": 65367,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Verde Pastel",
+      "cor": 7855479,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Verde Esmeralda",
+      "cor": 5294200,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Azul",
+      "cor": 255,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Azul Neon",
+      "cor": 1770403,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Azul Vibrante",
+      "cor": 2061822,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Azul Celeste",
+      "cor": 8900331,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Azul Pastel",
+      "cor": 11454159,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Roxo",
+      "cor": 8388736,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Roxo Neon",
+      "cor": 10289407,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Roxo Vibrante",
+      "cor": 10170623,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Roxo Pastel",
+      "cor": 13347531,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Roxo \"Lilas\"",
+      "cor": 9662683,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Rosa",
+      "cor": 16761035,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Rosa Neon",
+      "cor": 16716947,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Rosa Vibrante",
+      "cor": 16738740,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Rosa Pastel",
+      "cor": 16766699,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Rosa Chiclete",
+      "cor": 16742313,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Preto",
+      "cor": 197379,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Preto Carvao",
+      "cor": 1842204,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Preto Grafite",
+      "cor": 3092271,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Preto Onix",
+      "cor": 3487801,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Preto Fuligem",
+      "cor": 4013373,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Cinza",
+      "cor": 8421504,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Cinza \"Claro\"?",
+      "cor": 11119017,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Cinza Medio '-'",
+      "cor": 11579568,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Cinza Fume",
+      "cor": 6908265,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Cinza Prateado",
+      "cor": 12632256,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Branco",
+      "cor": 16777215,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Branco Gelo. bruh",
+      "cor": 15790320,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Branco Neve. qual a diferenca",
+      "cor": 16775930,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Branco Perola. Bruh pt2",
+      "cor": 16316671,
+      "hoist": false,
+      "perms": "recruta"
+    },
+    {
+      "nome": "Brano Fantasma. ???????",
+      "cor": 16119285,
+      "hoist": false,
+      "perms": "recruta"
+    }
+  ],
+  "categorias": [
+    {
+      "nome": "Sem Categoria",
+      "canais": [
+        {
+          "nome": "moderator-only",
+          "tipo": "text"
+        },
+        {
+          "nome": "spam-bot",
+          "tipo": "text"
+        }
+      ]
+    },
+    {
+      "nome": "┗⎯⎯|📊|SERVER STATS|📊|⎯⎯┑",
+      "canais": [
+        {
+          "nome": "〔🍪〕Members: 3",
+          "tipo": "voice",
+          "somente_leitura": true
+        }
+      ]
+    },
+    {
+      "nome": "┗⎯⎯⎯|🏠|INICIO|🏠|⎯⎯⎯┑",
+      "canais": [
+        {
+          "nome": "〔👋〕bem-vindo",
+          "tipo": "text"
+        },
+        {
+          "nome": "〔🚪〕saida",
+          "tipo": "text"
+        },
+        {
+          "nome": "〔📜〕regras",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "cor",
+          "tipo": "text",
+          "staff_only": true
+        }
+      ]
+    },
+    {
+      "nome": "┗⎯⎯⎯|🍀|INFORMACOES|🍀|⎯⎯⎯┑",
+      "canais": [
+        {
+          "nome": "〔📌〕anunciamento",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "〔🆙〕level-up",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "〔🎉〕giveaway",
+          "tipo": "text",
+          "somente_leitura": true
+        },
+        {
+          "nome": "〔🎫〕tickets",
+          "tipo": "text",
+          "somente_leitura": true
+        }
+      ]
+    },
+    {
+      "nome": "┗⎯⎯⎯⎯⎯⎯|💭|CHAT|💭|⎯⎯⎯⎯⎯⎯┑",
+      "canais": [
+        {
+          "nome": "〔💬〕geral",
+          "tipo": "text"
+        },
+        {
+          "nome": "〔📷〕midia",
+          "tipo": "text"
+        },
+        {
+          "nome": "〔🤖〕bot-commands",
+          "tipo": "text"
+        },
+        {
+          "nome": "〔💡〕sugestões",
+          "tipo": "text",
+          "somente_leitura": true
+        }
+      ]
+    },
+    {
+      "nome": "┗⎯⎯⎯⎯⎯⎯|📞|Chat_Voz|📞|⎯⎯⎯⎯⎯⎯┑",
+      "canais": [
+        {
+          "nome": "〔🔇〕sem_mic",
+          "tipo": "text"
+        },
+        {
+          "nome": "〔🔊〕Geral  #1",
+          "tipo": "voice"
+        },
+        {
+          "nome": "〔🔊〕Geral  #2",
+          "tipo": "voice"
+        },
+        {
+          "nome": "〔🔊〕Geral  #3",
+          "tipo": "voice"
+        },
+        {
+          "nome": "〔🔐〕Private",
+          "tipo": "voice"
+        },
+        {
+          "nome": "〔🔐〕Private",
+          "tipo": "voice"
+        },
+        {
+          "nome": "〔🔐〕Private",
+          "tipo": "voice"
+        },
+        {
+          "nome": "〔🔇〕AFK",
+          "tipo": "voice"
+        }
+      ]
+    },
+    {
+      "nome": "┗⎯⎯⎯⎯⎯|🎵|MUSICA|🎵|⎯⎯⎯⎯⎯┑",
+      "canais": [
+        {
+          "nome": "〔🎶〕comandos_musica",
+          "tipo": "text"
+        },
+        {
+          "nome": "〔🎶〕Music #1",
+          "tipo": "voice"
+        },
+        {
+          "nome": "〔🎶〕Music #2",
+          "tipo": "voice"
+        }
+      ]
+    },
+    {
+      "nome": "┗⎯⎯⎯⎯⎯|🌀|STAFF|🌀|⎯⎯⎯⎯⎯┑",
+      "canais": [
+        {
+          "nome": "partnerships",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "〔🚀〕staff-chat",
+          "tipo": "text",
+          "staff_only": true
+        },
+        {
+          "nome": "〔🚀〕staff voice",
+          "tipo": "voice",
+          "staff_only": true
+        }
+      ]
+    }
+  ]
+}

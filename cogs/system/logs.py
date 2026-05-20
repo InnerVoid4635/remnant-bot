@@ -2,13 +2,15 @@ import discord
 from discord.ext import commands
 import json
 from pathlib import Path
+from dotenv import load_dotenv
 from verbose import log_event, log_error, log_system
+import os
 
-# --- SEU ID ---
-OWNER_ID = 741273661163569212
+load_dotenv()
+OWNER_ID = int(os.getenv("OWNER_ID", "0")) 
 
 # --- ARQUIVO DE CONFIGURAÇÃO DE CANAIS ---
-CONFIG_PATH = Path("./config/log_channels.json")
+CONFIG_PATH = Path("./log_channels.json")
 CONFIG_PATH.parent.mkdir(exist_ok=True)
 
 def load_log_channels() -> dict:
@@ -92,7 +94,7 @@ class Logs(commands.Cog):
         )
         embed.set_author(name=str(message.author), icon_url=message.author.display_avatar.url)
         embed.add_field(name="👤 Autor",    value=message.author.mention,        inline=True)
-        embed.add_field(name="💬 Canal",    value=message.channel.mention,       inline=True)
+        embed.add_field(name="💬 Canal",    value=message.channel.mention,       inline=True) #type:ignore
         embed.add_field(name="🌐 Servidor", value=str(message.guild),            inline=True)
         embed.add_field(name="📝 Conteúdo", value=self.truncate(message.content), inline=False)
         embed.set_thumbnail(url=message.author.display_avatar.url)
@@ -118,7 +120,7 @@ class Logs(commands.Cog):
         )
         embed.set_author(name=str(before.author), icon_url=before.author.display_avatar.url)
         embed.add_field(name="👤 Autor",    value=before.author.mention,        inline=True)
-        embed.add_field(name="💬 Canal",    value=before.channel.mention,       inline=True) #type
+        embed.add_field(name="💬 Canal",    value=before.channel.mention,       inline=True) #type: ignore
         embed.add_field(name="🌐 Servidor", value=str(before.guild),            inline=True)
         embed.add_field(name="📝 Antes",    value=self.truncate(before.content), inline=False)
         embed.add_field(name="✅ Depois",   value=self.truncate(after.content),  inline=False)
